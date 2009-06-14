@@ -94,6 +94,7 @@ public class AddCourseSubPage extends BasePageElement {
 			//MUSTDO
 			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 		} else if (e.getSource() == input_view_class) {
+			studentList.setCourseID(input_courseID.getText());
 			studentList.setVisible(true);
 		}
 	}

@@ -14,12 +14,17 @@ public class MTableModel extends AbstractTableModel {
 	private String headerName[] = null;
 	private Vector dataVec = null;
 	
-	private String courseId;
+	//MUSTDO
+	private String courseId = "000000";
 	
 	public MTableModel(String headerName[], String tabName) {
 		this.tabName = tabName;
 		this.headerName = headerName;
 		initialize();
+	}
+	
+	public void setCourseID(String st) {
+		this.courseId = st;
 	}
 	
 	private void initialize() {
