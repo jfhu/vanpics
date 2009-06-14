@@ -10,9 +10,12 @@ import java.util.*;
 
 public class ActivityTableModel extends DefaultTableModel {
 	private List<ActivityGroup> list=null;
-	public ActivityTableModel(List<ActivityGroup> list){
-		this.list=list;
+	
+	public ActivityTableModel(String[] columnNames, List<ActivityGroup> list) {
+		super(null, columnNames);
+		this.list = list;
 	}
+	
 	public int getColumnCount(){
 		return 3;    		
 	}
