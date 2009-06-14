@@ -79,5 +79,16 @@ public class ActivityGroup implements java.io.Serializable {
 		return maxScore;
 		
 	}
+	
+	public static ArrayList <ActivityGroup> find(String courseId){
+			ActivityGroupDAO activityGroupDAO = new ActivityGroupDAO();
+			ArrayList groups = (ArrayList) activityGroupDAO.findByCourseId(courseId);
+			ArrayList <ActivityGroup> ret = new ArrayList();
+			for (Object group : groups){
+				ret.add((ActivityGroup) group );
+			}
+			return ret;
+			
+	}
 
 }
