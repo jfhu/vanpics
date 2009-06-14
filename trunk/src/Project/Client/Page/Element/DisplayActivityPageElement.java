@@ -39,10 +39,7 @@ public class DisplayActivityPageElement extends BasePageElement {
 	public DisplayActivityPageElement() {
 		
 		ArrayList <ActivityGroup> activityGroups = ActivityGroup.find(this.courseId);
-		for (ActivityGroup a : activityGroups)
-		{
-				System.err.println(a.getId());
-		}
+
 		
 		setLayout(new BorderLayout());
 		
