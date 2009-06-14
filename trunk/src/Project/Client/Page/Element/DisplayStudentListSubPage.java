@@ -26,7 +26,7 @@ import Project.Client.Page.BasePage;
 
 public class DisplayStudentListSubPage extends JDialog implements ActionListener {
 	JPanel layout = new JPanel();
-	JTable jTable = new JTable();
+	JTable jTable = new JTable(10,10);
 	JPanel header = new JPanel(new GridLayout(1, 2));
 	JLabel name = new JLabel("CMPT 275, Software Engineering - Janice Regan");
 	JPanel header_right = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -52,12 +52,14 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		//set JTable
 		jTable.setOpaque(false);
 		jTable.setGridColor(new Color(200, 200, 200));
+		//MUSTDO TABLE
+		/*
 		String headerName[] = {"SID", "CourseID"};
 		String tabName = "ZdcQdw";
 		MTableModel mTableModel = new MTableModel(headerName, tabName);
 		mTableModel.setCourseID(courseID);
 		jTable.setModel(mTableModel);
-		
+		*/
 		
 		submit.add(input_discard);
 		submit.add(input_submit);
