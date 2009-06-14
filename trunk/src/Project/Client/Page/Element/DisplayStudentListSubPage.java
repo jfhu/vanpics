@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import Project.Client.Controller.MTableModel;
+import Project.Client.Controller.ActivityTableModel;
 import Project.Client.Controller.MyCSVFileChooser;
 import Project.Client.Page.BasePage;
 import Project.Server.Object.Student;

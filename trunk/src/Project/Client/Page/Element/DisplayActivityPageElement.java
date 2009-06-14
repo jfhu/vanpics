@@ -6,12 +6,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.table.TableModel;
+import javax.swing.*;
 
+import java.util.List;
+
+import Project.Client.Controller.ActivityTableModel;
 import Project.Server.Database.ActivityGroup;
+import Project.Server.Database.AccountIdCourseId;
 
 /**
 */
@@ -23,10 +24,9 @@ public class DisplayActivityPageElement extends BasePageElement {
 	private JButton input_minus = new JButton("-");
 	private JButton input_loadPast = new JButton("Load From Past");
 	
-	private JTable list = new JTable(3, 3);
+	private JTable jTable = new JTable();
 	
 	private String courseId;
-	
 	
 	public String getCourseId() {
 		return courseId;
@@ -40,12 +40,11 @@ public class DisplayActivityPageElement extends BasePageElement {
 		
 		ArrayList <ActivityGroup> activityGroups = ActivityGroup.find(this.courseId);
 
-		
 		setLayout(new BorderLayout());
 		
-		list.setGridColor(new Color(200, 200, 200));
-		list.setOpaque(false);
-		
+		jTable.setGridColor(new Color(200, 200, 200));
+		jTable.setOpaque(false);
+		jTable.setModel(new ActivityTableModel(activityGroups));
 		
 		
 		//not required
@@ -56,13 +55,13 @@ public class DisplayActivityPageElement extends BasePageElement {
 		paneActivity_button.add(input_loadPast, BorderLayout.PAGE_START);
 		paneActivity_button.add(paneActivity_button_minusplus, BorderLayout.PAGE_END);
 		add(paneActivity_button, BorderLayout.WEST);
-		add(list, BorderLayout.CENTER);
+		add(jTable, BorderLayout.CENTER);
 		
 	}
 	
 	public void clear() {
-		list.removeAll();
-		list.repaint();
+		jTable.removeAll();
+		jTable.repaint();
 	}
 
 	@Override
