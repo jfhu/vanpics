@@ -6,7 +6,7 @@ import Project.Exception.Password_Error;
 /**
 */
 public final class Login extends Controller {
-	public String checkAccount(String username, String passWord) throws Password_Error , RuntimeException{
+	public Account checkAccount(String username, String passWord) throws Password_Error , RuntimeException{
 		
 	
 		
@@ -18,7 +18,7 @@ public final class Login extends Controller {
 		
 		if (account.getPassWord().equalsIgnoreCase(passWord)) {
 			
-			return account.getType();
+			return account;
 		}
 		
 		else {

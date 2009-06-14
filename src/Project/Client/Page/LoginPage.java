@@ -9,6 +9,7 @@ import javax.swing.*;
 import Project.Client.Controller.Login;
 import Project.Client.Controller.SQLController;
 import Project.Exception.Password_Error;
+import Project.Server.Database.Account;
 
 public class LoginPage extends BasePage {
 	//menu
@@ -85,8 +86,9 @@ public class LoginPage extends BasePage {
 		
 		if (command.equals("Login")) {
 			String type = "UnKnow";
+			Account account;
 			try{
-				type = login_control.checkAccount(input_id.getText(), String.valueOf( input_password.getPassword() ) );
+				account = login_control.checkAccount(input_id.getText(), String.valueOf( input_password.getPassword() ) );
 				
 			}
 			catch (Password_Error pe){
@@ -102,11 +104,11 @@ public class LoginPage extends BasePage {
 			}
 			
 		//	System.err.println(type);
-				if (type.equalsIgnoreCase( "Instructor") ){
+				if (account.getType().equalsIgnoreCase( "Instructor") ){
 					super.newFrame = new InstructorPage(super.frame.getLocation());
 					frame.setVisible(false);
 				}
-				else if (type.equalsIgnoreCase( "SystemManager" )){
+				else if (account.getType().equalsIgnoreCase( "SystemManager" )){
 					
 					super.newFrame = new SystemManagerPage(super.frame.getLocation());
 					frame.setVisible(false);
