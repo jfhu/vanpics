@@ -2,11 +2,16 @@ package Project.Client.Page.Element;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 
 import java.util.List;
 
@@ -39,10 +44,6 @@ public class DisplayActivityPageElement extends BasePageElement {
 	public DisplayActivityPageElement() {
 		
 		ArrayList <ActivityGroup> activityGroups = ActivityGroup.find(this.courseId);
-		for (ActivityGroup a : activityGroups) {
-			System.out.println(a.getId() + " " + a.getPercent());
-		}
-		
 		
 		setLayout(new BorderLayout());
 		
@@ -50,7 +51,9 @@ public class DisplayActivityPageElement extends BasePageElement {
 		jTable.setOpaque(false);
 		String[] columnNames = {"#", "Activity Name", "Proportion"};
 		jTable.setModel(new ActivityTableModel(columnNames, activityGroups));
-		
+		JScrollPane scrollTable = new JScrollPane();
+		scrollTable.getViewport().add(jTable, null);
+		scrollTable.setPreferredSize(new Dimension(getPreferredSize().width, 130));
 		
 		//not required
 		input_loadPast.setEnabled(false);
@@ -60,7 +63,7 @@ public class DisplayActivityPageElement extends BasePageElement {
 		paneActivity_button.add(input_loadPast, BorderLayout.PAGE_START);
 		paneActivity_button.add(paneActivity_button_minusplus, BorderLayout.PAGE_END);
 		add(paneActivity_button, BorderLayout.WEST);
-		add(jTable, BorderLayout.CENTER);
+		add(scrollTable, BorderLayout.CENTER);
 		
 	}
 	
@@ -72,6 +75,7 @@ public class DisplayActivityPageElement extends BasePageElement {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == input_plus) {
+			TableModel tm = jTable.getModel();
 			
 		} else if (e.getSource() == input_minus) {
 			
