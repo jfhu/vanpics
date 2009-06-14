@@ -29,13 +29,13 @@ public class DisplayAccountSubPage extends BasePageElement{
 	private JLabel ID = new JLabel("Account ID", JLabel.RIGHT);
 	private JLabel name = new JLabel("Name", JLabel.RIGHT);
 	private JLabel email = new JLabel("E-mail", JLabel.RIGHT);
-	private JLabel dept = new JLabel("Department", JLabel.RIGHT);
+	private JLabel phone = new JLabel("Phone", JLabel.RIGHT);
 	private JLabel type = new JLabel("Account Type", JLabel.RIGHT);
 	
 	private JTextField input_ID = new JTextField();
 	private JTextField input_name = new JTextField();
 	private JTextField input_email = new JTextField();
-	private JTextField input_dept = new JTextField();
+	private JTextField input_phone = new JTextField();
 	//TODO: user type
 	private String[] comboBoxItems = {"Student", "Instructor", "Administrator", "System Manager"};
 	private JComboBox input_type = new JComboBox( comboBoxItems );
@@ -67,8 +67,8 @@ public class DisplayAccountSubPage extends BasePageElement{
 		paneBasic.add(input_name);
 		paneBasic.add(email);
 		paneBasic.add(input_email);
-		paneBasic.add(dept);
-		paneBasic.add(input_dept);
+		paneBasic.add(phone);
+		paneBasic.add(input_phone);
 		paneBasic.add(type);
 		paneBasic.add(input_type);
 		paneBasicWrap.add(paneBasic);
@@ -111,7 +111,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 			input_ID.setText("");
 			input_name.setText("");
 			input_email.setText("");
-			input_dept.setText("");
+			input_phone.setText("");
 			input_password.setText("");
 			input_newPassword.setText("");
 			input_confirmPassword.setText("");
