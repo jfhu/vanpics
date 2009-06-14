@@ -44,7 +44,6 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	
 	public DisplayStudentListSubPage() {
 		
-		
 		layout.setLayout(new BorderLayout(10, 10));
 		setSize(800, 480);
 		setLocationRelativeTo(null);
