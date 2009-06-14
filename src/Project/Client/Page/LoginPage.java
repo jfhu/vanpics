@@ -101,12 +101,12 @@ public class LoginPage extends BasePage {
 				return;
 			}
 			
-			
-				if (type == "Instructor"){
+			System.err.println(type);
+				if (type.equalsIgnoreCase( "Instructor") ){
 					super.newFrame = new InstructorPage(super.frame.getLocation());
 					frame.setVisible(false);
 				}
-				else if (type == "SystemManager"){
+				else if (type.equalsIgnoreCase( "SystemManager" )){
 					
 					super.newFrame = new SystemManagerPage(super.frame.getLocation());
 					frame.setVisible(false);

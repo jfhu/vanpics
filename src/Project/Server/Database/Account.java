@@ -1,5 +1,4 @@
 package Project.Server.Database;
-import Project.Exception.*;
 
 /**
  * Account entity. @author MyEclipse Persistence Tools
@@ -49,9 +48,7 @@ public class Account implements java.io.Serializable {
 		return this.type;
 	}
 
-	public void setType(String type) throws Invailed_Account_Type {
-		if (type != "Student" || type != "Instructor" || type != "Administrator" || type != "SystemManager")
-			throw  new Invailed_Account_Type(type);
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -83,8 +80,7 @@ public class Account implements java.io.Serializable {
 		return this.phone;
 	}
 
-	public void setPhone(String phone) throws Invailed_Phone_Number {
-		if (! phone.matches("^[0-9]*$") ) throw new Invailed_Phone_Number(phone);
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -92,9 +88,8 @@ public class Account implements java.io.Serializable {
 		return this.email;
 	}
 
-	public void setEmail(String email) throws Invailed_Email_Address {
-		if (! phone.matches("/^[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\\.][a-z]{2,3}([\\.][a-z]{2})?$/i"))
-			throw new Invailed_Email_Address(email);
+	public void setEmail(String email) {
+		
 		this.email = email;
 	}
 

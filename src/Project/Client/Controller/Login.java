@@ -14,9 +14,19 @@ public final class Login extends Controller {
 		
 		Account account = accountDAO.findById(username);
 			
-		if (account.getPassWord() == passWord) return account.getType();
+		System.err.println(account.getId());
+		System.err.println(account.getName());
+		System.err.println(account.getPassWord()+"/"+passWord);
 		
-		else throw new Password_Error(passWord);
+		if (account.getPassWord().equalsIgnoreCase(passWord)) {
+			
+			return account.getType();
+		}
+		
+		else {
+		
+			throw new Password_Error(passWord);
+		}
 	}
 }
 
