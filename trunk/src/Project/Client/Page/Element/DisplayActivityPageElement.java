@@ -48,7 +48,8 @@ public class DisplayActivityPageElement extends BasePageElement {
 		
 		jTable.setGridColor(new Color(200, 200, 200));
 		jTable.setOpaque(false);
-		jTable.setModel(new ActivityTableModel(activityGroups));
+		String[] columnNames = {"#", "Activity Name", "Proportion"};
+		jTable.setModel(new ActivityTableModel(columnNames, activityGroups));
 		
 		
 		//not required
