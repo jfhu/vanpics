@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
-import Project.Client.Controller.LoginController;
+import Project.Client.Controller.Login;
 import Project.Client.Controller.SQLController;
 import Project.Exception.Password_Error;
 
@@ -25,7 +25,7 @@ public class LoginPage extends BasePage {
 	private JButton 	forgot = new JButton("Forgot password");
 	
 	//controller		
-	private LoginController		login_control = new LoginController();
+	private Login		login_control = new Login();
 	
 	//debug menu
 	private JMenu		debug = new JMenu("Develop");
