@@ -4,14 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.*;
-import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import Project.Server.Operator.Add_Element;
 
 /**
 */
@@ -116,16 +112,27 @@ public class DisplayAccountSubPage extends BasePageElement{
 			input_newPassword.setText("");
 			input_confirmPassword.setText("");
 		}else if (e.getSource() == input_submit) {
+			
+			try{
+				
+			String passWord = String.valueOf(input_newPassword.getPassword());
+			Add_Element.addAccount(input_ID.getText() , input_type.getSelectedItem().toString() , input_ID.getText() , 
+					passWord , input_name.getText() , input_phone.getText(), input_email.getText());
+			}
+			catch(RuntimeException re){
+				JOptionPane.showMessageDialog(null, "Submit Failed.", "Failed", JOptionPane.NO_OPTION);
+			
+				return ;
+			}
+			
 			if(!input_newPassword.equals(input_confirmPassword)) {
 				JOptionPane.showMessageDialog(null, "Passwords dont match.", "Error", JOptionPane.ERROR_MESSAGE);
 				input_newPassword.setText("");
 				input_confirmPassword.setText("");
+
+			}
 				
-			}
-			else {
-				//MUSTDO do the submit
-				JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
-			}
+			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 		}
 		
 	}
