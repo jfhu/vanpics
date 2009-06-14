@@ -92,7 +92,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 		add(paneBasicWrap, BorderLayout.NORTH);
 		paneMiddleBox.add(paneSpecial);
 		paneMiddleBox.add(panePasswordWrap);
-		//add(paneMiddleBox, BorderLayout.CENTER);
+		add(paneMiddleBox, BorderLayout.CENTER);
 		add(paneSubmit, BorderLayout.SOUTH);
 		
 		setVisible(true);
@@ -138,18 +138,26 @@ public class DisplayAccountSubPage extends BasePageElement{
 	}
 	
 	public void setForSystemManager() {
-		//paneMiddleBox.remove(1);
-		//validate();
-		add(paneMiddleBox, BorderLayout.CENTER);
-		
+		specialLabel.setEnabled(false);
+		specialLabelNum.setEnabled(false);
+		input_password.setEditable(false);
+		setVisible(true);
 	}
 	public void setForInstructor() {
-		
+		input_ID.setEditable(false);
+		input_name.setEditable(false);
+		input_type.setEditable(false);
 	}
 	public void setForStudent() {
+		input_ID.setEditable(false);
+		input_name.setEditable(false);
+		input_type.setEditable(false);
 		input_submit.setEnabled(false);
 	}
 	public void setForAdministrator() {
+		input_ID.setEditable(false);
+		input_name.setEditable(false);
+		input_type.setEditable(false);
 		input_submit.setEnabled(false);
 	}
 	

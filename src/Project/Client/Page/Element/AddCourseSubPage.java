@@ -26,7 +26,7 @@ public class AddCourseSubPage extends BasePageElement {
 	private JTextField input_courseName = new JTextField();
 	private JTextField input_instructor = new JTextField();
 	private JTextField input_term = new JTextField();
-	private JTextArea input_description = new JTextArea("Description goes here.");
+	private JTextArea input_description = new JTextArea(15,50);
 	private JScrollPane scrollPane = new JScrollPane(); 
 	
 	private JButton input_view_class = new JButton("View Class List");
@@ -60,13 +60,15 @@ public class AddCourseSubPage extends BasePageElement {
 		paneSubmit.add(paneSubmit_left);
 		paneSubmit.add(paneSubmit_right);
 		
+		input_description.setText("Description goes here.");
 		input_description.setLineWrap(true);
 		input_description.setWrapStyleWord(true);
 		input_description.setCaretPosition(0);
-		input_description.setMinimumSize(new Dimension(200, 100));
+		//input_description.setMinimumSize(new Dimension(200, 100));
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);   
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.getViewport().add(input_description, null);
+        scrollPane.setSize(500, 400);
 		paneDescription.add(scrollPane);
 		
 		southWrapper.add(paneActivity, BorderLayout.NORTH);
