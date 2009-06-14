@@ -26,7 +26,7 @@ public class DisplayActivityPageElement extends BasePageElement {
 	
 	private JTable jTable = new JTable();
 	
-	private String courseId;
+	private String courseId = "5";
 	
 	public String getCourseId() {
 		return courseId;
@@ -39,7 +39,11 @@ public class DisplayActivityPageElement extends BasePageElement {
 	public DisplayActivityPageElement() {
 		
 		ArrayList <ActivityGroup> activityGroups = ActivityGroup.find(this.courseId);
-
+		for (ActivityGroup a : activityGroups) {
+			System.out.println(a.getId() + " " + a.getPercent());
+		}
+		
+		
 		setLayout(new BorderLayout());
 		
 		jTable.setGridColor(new Color(200, 200, 200));
