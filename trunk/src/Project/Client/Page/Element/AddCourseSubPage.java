@@ -2,6 +2,9 @@ package Project.Client.Page.Element;
 
 import javax.swing.*;
 
+import Project.Exception.Illegal_Input;
+import Project.Server.Operator.Add_Element;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,12 +22,12 @@ public class AddCourseSubPage extends BasePageElement {
 	private DisplayActivityPageElement paneActivity = new DisplayActivityPageElement();
 	private JLabel courseID = new JLabel("Course ID", JLabel.RIGHT);
 	private JLabel courseName = new JLabel("Course Name", JLabel.RIGHT);
-	private JLabel instructor = new JLabel("Instructor", JLabel.RIGHT);
+	private JLabel instructorId = new JLabel("Instructor", JLabel.RIGHT);
 	private JLabel term = new JLabel("Term", JLabel.RIGHT);
 	
 	private JTextField input_courseID = new JTextField();
 	private JTextField input_courseName = new JTextField();
-	private JTextField input_instructor = new JTextField();
+	private JTextField input_instructorId = new JTextField();
 	private JTextField input_term = new JTextField();
 	private JTextArea input_description = new JTextArea(15,50);
 	private JScrollPane scrollPane = new JScrollPane(); 
@@ -49,8 +52,8 @@ public class AddCourseSubPage extends BasePageElement {
 		paneBasic.add(input_courseID);
 		paneBasic.add(courseName);
 		paneBasic.add(input_courseName);
-		paneBasic.add(instructor);
-		paneBasic.add(input_instructor);
+		paneBasic.add(instructorId);
+		paneBasic.add(input_instructorId);
 		paneBasic.add(term);
 		paneBasic.add(input_term);
 		
@@ -89,14 +92,17 @@ public class AddCourseSubPage extends BasePageElement {
 		if (e.getSource() == input_reset) {
 			input_courseID.setText("");
 			input_courseName.setText("");
-			input_instructor.setText("");
+			input_instructorId.setText("");
 			//input_term.setText("");
 			paneActivity.clear();
 		}else if (e.getSource() == input_submit) {
 			try{
-				Addd_Element.addCourse(input_courseID.getText() , input_courseName.getText()
-						, input_instructor.getText() , input_term.getText() 
-						,input_description)
+				Add_Element.addCourse(input_courseID.getText() , input_courseName.getText()
+						, input_instructorId.getText() , input_term.getText() 
+						,input_description.getText());
+			}
+			catch (Illegal_Input ii){
+				
 			}
 			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 		} else if (e.getSource() == input_view_class) {
@@ -111,7 +117,7 @@ public class AddCourseSubPage extends BasePageElement {
 	public void setForInstructor() {
 		input_courseID.setEditable(false);
 		input_courseName.setEditable(false);
-		input_instructor.setEditable(false);
+		input_instructorId.setEditable(false);
 		input_term.setEditable(false);
 	}
 	public void setForStudent() {

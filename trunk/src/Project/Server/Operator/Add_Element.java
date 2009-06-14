@@ -26,5 +26,10 @@ public final class Add_Element extends Database_Operator{
 	
 		
 	}
+	
+	public static void addCourse(String courseId , String courseName , String instructorId 
+			, String term , String description) throws Illegal_Input{
+		throw new Illegal_Input("empty");
+	}
 }
 
