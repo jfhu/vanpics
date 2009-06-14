@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
 
 /**
 */
@@ -27,7 +28,7 @@ public class DisplayActivityPageElement extends BasePageElement {
 		list.setGridColor(new Color(200, 200, 200));
 		list.setOpaque(false);
 		
-		//n/a
+		//not required
 		input_loadPast.setEnabled(false);
 		
 		paneActivity_button_minusplus.add(input_plus, BorderLayout.LINE_END);
@@ -46,7 +47,11 @@ public class DisplayActivityPageElement extends BasePageElement {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == input_plus) {
+			
+		} else if (e.getSource() == input_minus) {
+			
+		}
 		
 	}
 }
