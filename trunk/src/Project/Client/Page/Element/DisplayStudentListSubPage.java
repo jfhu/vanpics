@@ -20,12 +20,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
+import Project.Client.Controller.MTableModel;
 import Project.Client.Controller.MyCSVFileChooser;
 import Project.Client.Page.BasePage;
 
 public class DisplayStudentListSubPage extends JDialog implements ActionListener {
 	JPanel layout = new JPanel();
-	JTable list = new JTable(10,4);
+	JTable jTable = new JTable();
 	JPanel header = new JPanel(new GridLayout(1, 2));
 	JLabel name = new JLabel("CMPT 275, Software Engineering - Janice Regan");
 	JPanel header_right = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -41,8 +42,16 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		layout.setLayout(new BorderLayout(10, 10));
 		setSize(800, 480);
 		setLocationRelativeTo(null);
-		list.setOpaque(false);
-		list.setGridColor(new Color(200, 200, 200));
+		
+		//set JTable
+		jTable.setOpaque(false);
+		jTable.setGridColor(new Color(200, 200, 200));
+		String headerName[] = {"SID", "CourseID"};
+		String tabName = "ZdcQdw";
+		MTableModel mTableModel = new MTableModel(headerName, tabName);
+		jTable.setModel(mTableModel);
+		
+		
 		
 		submit.add(input_discard);
 		submit.add(input_submit);
@@ -52,7 +61,7 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		header.add(header_right);
 		
 		layout.add(header, BorderLayout.NORTH);
-		layout.add(list, BorderLayout.CENTER);
+		layout.add(jTable, BorderLayout.CENTER);
 		layout.add(submit, BorderLayout.SOUTH);
 		setContentPane(layout);
 		
