@@ -116,13 +116,13 @@ public class DisplayAccountSubPage extends BasePageElement{
 			input_newPassword.setText("");
 			input_confirmPassword.setText("");
 		}else if (e.getSource() == input_submit) {
-			//MUSTDO
-			
 			if(!input_newPassword.equals(input_confirmPassword)) {
 				JOptionPane.showMessageDialog(null, "Passwords dont match.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
-				
-			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
+			else {
+				//MUSTDO do the submit
+				JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
+			}
 		}
 		
 	}
