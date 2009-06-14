@@ -33,6 +33,7 @@ public class AccountDAO extends BaseHibernateDAO {
 		log.debug("saving Account instance");
 		try {
 			getSession().save(transientInstance);
+		//	System.err.println("D:"+transientInstance.getId()+transientInstance.getName()+transientInstance.getPassWord()+transientInstance.getPhone());
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);

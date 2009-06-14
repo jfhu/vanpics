@@ -101,7 +101,7 @@ public class LoginPage extends BasePage {
 				return;
 			}
 			
-			System.err.println(type);
+		//	System.err.println(type);
 				if (type.equalsIgnoreCase( "Instructor") ){
 					super.newFrame = new InstructorPage(super.frame.getLocation());
 					frame.setVisible(false);
