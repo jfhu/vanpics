@@ -15,6 +15,7 @@ public class Account implements java.io.Serializable {
 	private String name;
 	private String phone;
 	private String email;
+	
 
 	// Constructors
 

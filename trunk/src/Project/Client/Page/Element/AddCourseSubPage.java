@@ -93,7 +93,11 @@ public class AddCourseSubPage extends BasePageElement {
 			//input_term.setText("");
 			paneActivity.clear();
 		}else if (e.getSource() == input_submit) {
-			//MUSTDO
+			try{
+				Addd_Element.addCourse(input_courseID.getText() , input_courseName.getText()
+						, input_instructor.getText() , input_term.getText() 
+						,input_description)
+			}
 			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 		} else if (e.getSource() == input_view_class) {
 			studentList.setCourseID(input_courseID.getText());
