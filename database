@@ -1,0 +1,33 @@
+Course
+	id
+	name
+	information
+	term
+Activity
+	id
+	name
+	information
+	beginTime
+	endTime
+	activityGroupId
+ActivityGroup
+	id
+	percent
+	courseId
+Account
+	type
+	userName
+	passWord
+	id
+	name
+	phone
+	email
+AccountId_CourseId
+	accoutId
+	courseId
+StudentId_ActivityId
+	studentId
+	activityId
+	grade
+
+
