@@ -24,6 +24,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 	private JPanel panePasswordWrap = new JPanel();
 	private JPanel panePassword = new JPanel(new GridLayout(3, 2));
 	private JPanel paneSubmit = new JPanel();
+	private JPanel paneMiddleBox = new JPanel();
 	
 	private JLabel ID = new JLabel("Account ID", JLabel.RIGHT);
 	private JLabel name = new JLabel("Name", JLabel.RIGHT);
@@ -90,12 +91,12 @@ public class DisplayAccountSubPage extends BasePageElement{
 		paneSubmit.add(input_reset);
 		paneSubmit.add(input_submit);
 		
-		JPanel paneMiddleBox = new JPanel();
+		
 		paneMiddleBox.setLayout(new BoxLayout(paneMiddleBox, BoxLayout.PAGE_AXIS));
 		add(paneBasicWrap, BorderLayout.NORTH);
 		paneMiddleBox.add(paneSpecial);
 		paneMiddleBox.add(panePasswordWrap);
-		add(paneMiddleBox, BorderLayout.CENTER);
+		//add(paneMiddleBox, BorderLayout.CENTER);
 		add(paneSubmit, BorderLayout.SOUTH);
 		
 		setVisible(true);
@@ -121,6 +122,21 @@ public class DisplayAccountSubPage extends BasePageElement{
 		
 	}
 	
+	public void setForSystemManager() {
+		//paneMiddleBox.remove(1);
+		//validate();
+		add(paneMiddleBox, BorderLayout.CENTER);
+		
+	}
+	public void setForInstructor() {
+		
+	}
+	public void setForStudent() {
+		input_submit.setEnabled(false);
+	}
+	public void setForAdministrator() {
+		input_submit.setEnabled(false);
+	}
 	
 }
 

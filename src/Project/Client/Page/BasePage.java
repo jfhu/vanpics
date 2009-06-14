@@ -14,4 +14,5 @@ public abstract class BasePage extends Mainframe
 	public BasePage() {
 	}
 	abstract public void setLayout();
+	abstract public void setAccordingToAccountType();
 }

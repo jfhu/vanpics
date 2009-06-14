@@ -26,6 +26,7 @@ public class InstructorPage extends BasePage
 	private JComboBox	comboBox; 
 	private JPanel		comboBoxPane = new JPanel(new FlowLayout(FlowLayout.CENTER));
 	private JPanel		centerPane = new JPanel();
+	private AddCourseSubPage addCourseSubpage = new AddCourseSubPage();
 	
 //	Course
 	private String MYCOURSE1 = new String("YOYO's the best!");
@@ -47,8 +48,11 @@ public class InstructorPage extends BasePage
 		comboBox.setEditable(false);
 		comboBoxPane.add(new JLabel("Course List"));
 		comboBoxPane.add(comboBox);
+		
+		addCourseSubpage.setForInstructor();
+		
 		frame.add(comboBoxPane, BorderLayout.NORTH);
-		frame.add(new AddCourseSubPage(), BorderLayout.CENTER);
+		frame.add(addCourseSubpage, BorderLayout.CENTER);
 		
 		logout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
 		exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.ALT_MASK));
@@ -76,6 +80,10 @@ public class InstructorPage extends BasePage
 	}
 	public void itemStateChanged(ItemEvent e) {
 		// MUSTDO Auto-generated method stub
+		
+	}
+	@Override
+	public void setAccordingToAccountType() {
 		
 	}
 }

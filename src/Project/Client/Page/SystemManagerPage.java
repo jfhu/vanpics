@@ -20,9 +20,9 @@ public class SystemManagerPage extends BasePage
 	private JComboBox	comboBox;
 	
 	//different cards
-	private JPanel		card_addCourse = new AddCourseSubPage();
+	private AddCourseSubPage card_addCourse = new AddCourseSubPage();
 		final static String ADDCOURSE = "Add Course";
-	private JPanel		card_addAccount = new DisplayAccountSubPage();
+	private DisplayAccountSubPage	card_addAccount = new DisplayAccountSubPage();
 		final static String ADDACCOUNT = "Add Account";
 	
 	public SystemManagerPage() {
@@ -42,6 +42,8 @@ public class SystemManagerPage extends BasePage
 		comboBox.addItemListener(this);
 		comboBoxPane.add(new JLabel("Command:"));
 		comboBoxPane.add(comboBox);
+		card_addCourse.setForSystemManager();
+		card_addAccount.setForSystemManager();
 		centerPanel.add(card_addCourse, ADDCOURSE);
 		centerPanel.add(card_addAccount, ADDACCOUNT);
 		

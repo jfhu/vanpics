@@ -117,4 +117,17 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 			}
 		}
 	}
+	
+	public void setForSystemManager() {
+		
+	}
+	public void setForInstructor() {
+		
+	}
+	public void setForStudent() {
+		input_submit.setEnabled(false);
+	}
+	public void setForAdministrator() {
+		input_submit.setEnabled(false);
+	}
 }

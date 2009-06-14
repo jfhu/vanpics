@@ -97,5 +97,21 @@ public class AddCourseSubPage extends BasePageElement {
 			studentList.setVisible(true);
 		}
 	}
+	
+	public void setForSystemManager() {
+		
+	}
+	public void setForInstructor() {
+		input_courseID.setEditable(false);
+		input_courseName.setEditable(false);
+		input_instructor.setEditable(false);
+		input_term.setEditable(false);
+	}
+	public void setForStudent() {
+		
+	}
+	public void setForAdministrator() {
+		
+	}
 }
 
