@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ import javax.swing.JTable;
 import Project.Client.Controller.MTableModel;
 import Project.Client.Controller.MyCSVFileChooser;
 import Project.Client.Page.BasePage;
+import Project.Server.Object.Student;
 
 public class DisplayStudentListSubPage extends JDialog implements ActionListener {
 	JPanel layout = new JPanel();
@@ -43,6 +45,8 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	}
 	
 	public DisplayStudentListSubPage() {
+		
+		ArrayList <Student> students = Student.find(courseID); 
 		
 		layout.setLayout(new BorderLayout(10, 10));
 		setSize(800, 480);
