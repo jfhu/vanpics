@@ -82,8 +82,4 @@ public class InstructorPage extends BasePage
 		// MUSTDO Auto-generated method stub
 		
 	}
-	@Override
-	public void setAccordingToAccountType() {
-		
-	}
 }
