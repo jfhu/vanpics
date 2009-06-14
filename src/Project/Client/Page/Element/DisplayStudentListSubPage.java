@@ -36,6 +36,12 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	JButton input_submit = new JButton("Submit");
 	JButton input_discard = new JButton("Discard");
 	
+	private String courseID;
+	
+	public void setCourseID(String st) {
+		courseID = st;
+	}
+	
 	public DisplayStudentListSubPage() {
 		
 		
@@ -49,8 +55,8 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		String headerName[] = {"SID", "CourseID"};
 		String tabName = "ZdcQdw";
 		MTableModel mTableModel = new MTableModel(headerName, tabName);
+		mTableModel.setCourseID(courseID);
 		jTable.setModel(mTableModel);
-		
 		
 		
 		submit.add(input_discard);
