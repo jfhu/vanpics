@@ -6,7 +6,6 @@ import javax.swing.table.*;
 
 import Project.Server.Database.ActivityGroup;
 
-import java.awt.BorderLayout;
 import java.util.*;
 
 public class ActivityTableModel extends DefaultTableModel {
@@ -18,10 +17,15 @@ public class ActivityTableModel extends DefaultTableModel {
 		return 3;    		
 	}
 	public int getRowCount(){
-		return list.size();
+		if (list == null) {
+			return 0;
+		}
+		else {
+			return list.size();
+		}
 	}
 	public Object getValueAt(int row, int column){
-		if(row>=list.size()){
+		if(row>=getRowCount()){
 			return null;
 		}
 		ActivityGroup o=list.get(row);
