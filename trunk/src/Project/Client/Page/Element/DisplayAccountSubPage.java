@@ -118,6 +118,9 @@ public class DisplayAccountSubPage extends BasePageElement{
 		}else if (e.getSource() == input_submit) {
 			if(!input_newPassword.equals(input_confirmPassword)) {
 				JOptionPane.showMessageDialog(null, "Passwords dont match.", "Error", JOptionPane.ERROR_MESSAGE);
+				input_newPassword.setText("");
+				input_confirmPassword.setText("");
+				
 			}
 			else {
 				//MUSTDO do the submit
