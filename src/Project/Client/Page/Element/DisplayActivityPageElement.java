@@ -4,11 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
+
+import Project.Server.Database.ActivityGroup;
 
 /**
 */
@@ -34,10 +37,19 @@ public class DisplayActivityPageElement extends BasePageElement {
 	}
 
 	public DisplayActivityPageElement() {
+		
+		ArrayList <ActivityGroup> activityGroups = ActivityGroup.find(this.courseId);
+		for (ActivityGroup a : activityGroups)
+		{
+				System.err.println(a.getId());
+		}
+		
 		setLayout(new BorderLayout());
 		
 		list.setGridColor(new Color(200, 200, 200));
 		list.setOpaque(false);
+		
+		
 		
 		//not required
 		input_loadPast.setEnabled(false);
