@@ -22,6 +22,17 @@ public class DisplayActivityPageElement extends BasePageElement {
 	
 	private JTable list = new JTable(3, 3);
 	
+	private String courseId;
+	
+	
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+
 	public DisplayActivityPageElement() {
 		setLayout(new BorderLayout());
 		
