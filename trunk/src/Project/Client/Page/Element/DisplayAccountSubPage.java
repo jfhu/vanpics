@@ -10,6 +10,8 @@ import javax.swing.border.Border;
 import Project.Exception.Illegal_Input;
 import Project.Server.Database.Account;
 import Project.Server.Operator.Add_Element;
+import Project.Server.Operator.Delete_Element;
+import Project.Server.Operator.Edit_Element;
 
 /**
 */
@@ -129,7 +131,12 @@ public class DisplayAccountSubPage extends BasePageElement{
 		else if (e.getSource() == input_delete) {
 			int t = JOptionPane.showConfirmDialog(null, "Are you sure to delete account?", "Confirm", JOptionPane.YES_NO_OPTION);
 			if (t == JOptionPane.YES_OPTION) {
-			//	MUSTDO delete account
+			try{
+				Delete_Element.removeAccount(input_ID.getText());
+			} catch (Exception ex) { 
+				JOptionPane.showConfirmDialog(null, "Deletion failed.", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			}
 		}
 		
@@ -160,8 +167,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 		try{
 		
 		String passWord = String.valueOf(input_newPassword.getPassword());
-		//MUSTDO: if account exists, use "update" instead of "insert"
-		Add_Element.addAccount(input_ID.getText() , input_type.getSelectedItem().toString() , input_ID.getText() , 
+		Edit_Element.modifyAccount(input_ID.getText() , input_type.getSelectedItem().toString() , input_ID.getText() , 
 				passWord , input_name.getText() , input_phone.getText(), input_email.getText());
 		}
 		catch (Illegal_Input ii){

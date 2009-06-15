@@ -81,8 +81,8 @@ public class DisplayActivityPageElement extends BasePageElement {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == input_plus) {
 			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-			tableModel.addRow(new Object[]{tableModel.getRowCount(), "Activity Name", 10});
-			
+			String[] tmp = new String[] { "number", "name", "proportion" };
+			tableModel.addRow(tmp);
 		} else if (e.getSource() == input_minus) {
 			int selectRows=jTable.getSelectedRows().length;
 			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
@@ -96,7 +96,6 @@ public class DisplayActivityPageElement extends BasePageElement {
 				System.out.println(selRowIndex + " " + jTable.getRowCount());
 				tableModel.removeRow(selRowIndex);
 			}
-			
 		}
 	}
 }

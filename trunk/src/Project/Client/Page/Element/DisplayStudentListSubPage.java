@@ -44,7 +44,7 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	JButton input_submit = new JButton("Submit");
 	JButton input_discard = new JButton("Discard");
 	
-	//MUSTDO return a ArrayList from database
+	//MUSTDO: return a ArrayList from database
 	//studentID, grade1, grade2, grade3
 	//studentID, grade1, grade2, grade3
 	ArrayList<String[]> list;
@@ -105,7 +105,6 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 			
 			int i;
 			System.err.println(tableModel.getValueAt(0, 0).toString());
-			// MUSTDO: add student
 			try{
 			
 				Add_Element.addStudent((String) tableModel.getValueAt(0, 0) , this.courseID);
