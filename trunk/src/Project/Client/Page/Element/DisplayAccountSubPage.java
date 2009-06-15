@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import Project.Exception.Illegal_Input;
+import Project.Server.Database.Account;
 import Project.Server.Operator.Add_Element;
 
 /**
@@ -52,6 +53,8 @@ public class DisplayAccountSubPage extends BasePageElement{
 	private JButton input_reset = new JButton("Reset");
 	private JButton input_submit = new JButton("Submit");
 	private JButton input_delete = new JButton("Delete Account");
+	private JButton input_getAccount = new JButton("Get Account From ID");
+	private Account account;
 	
 	public DisplayAccountSubPage() {
 		setLayout(new BorderLayout());
@@ -86,6 +89,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 		panePassword.add(input_confirmPassword);
 		panePasswordWrap.add(panePassword);
 		
+		paneSubmit.add(input_getAccount);
 		paneSubmit.add(input_delete);
 		paneSubmit.add(input_reset);
 		paneSubmit.add(input_submit);
@@ -102,6 +106,8 @@ public class DisplayAccountSubPage extends BasePageElement{
 		
 		input_submit.addActionListener(this);
 		input_reset.addActionListener(this);
+		input_delete.addActionListener(this);
+		input_getAccount.addActionListener(this);
 	}
 
 	@Override
@@ -115,34 +121,59 @@ public class DisplayAccountSubPage extends BasePageElement{
 			input_newPassword.setText("");
 			input_confirmPassword.setText("");
 		}else if (e.getSource() == input_submit) {
-			String newPassWord = String.valueOf(input_newPassword.getPassword());
-			String confirmPassWord = String.valueOf(input_confirmPassword.getPassword());
-			if(!newPassWord.equals(confirmPassWord)) {
-				JOptionPane.showMessageDialog(null, "Passwords dont match.", "Error", JOptionPane.ERROR_MESSAGE);
-				input_newPassword.setText("");
-				input_confirmPassword.setText("");
-				return;
+			updateAccountInfo(input_ID.getText());
+		}
+		else if (e.getSource() == input_getAccount) {
+			getInfoFromID(input_ID.getText());			
+		}
+		else if (e.getSource() == input_delete) {
+			int t = JOptionPane.showConfirmDialog(null, "Are you sure to delete account?", "Confirm", JOptionPane.YES_NO_OPTION);
+			if (t == JOptionPane.YES_OPTION) {
+			//	MUSTDO delete account
 			}
-			try{
-				
-			String passWord = String.valueOf(input_newPassword.getPassword());
-			Add_Element.addAccount(input_ID.getText() , input_type.getSelectedItem().toString() , input_ID.getText() , 
-					passWord , input_name.getText() , input_phone.getText(), input_email.getText());
-			}
-			catch (Illegal_Input ii){
-				JOptionPane.showMessageDialog(null, "lack of Information.", "WARNING", JOptionPane.NO_OPTION);
-				return;
-			}
-			catch(RuntimeException re){
-				JOptionPane.showMessageDialog(null, "Submit Failed.", "WARNING", JOptionPane.NO_OPTION);
-			
-				return ;
-			}
-			
-				
-			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 		}
 		
+	}
+	
+	public void getInfoFromID(String SID) {
+		Account account = null;
+		//MUSTDO get info from ID
+		//e.g.: account = getAccount()
+		//error if account doesn't exist
+
+		input_ID.setText(account.getId());
+		input_email.setText(account.getEmail());
+		input_name.setText(account.getName());
+		input_phone.setText(account.getPhone());
+		input_type.setPrototypeDisplayValue(account.getType());
+	}
+	
+	public void updateAccountInfo(String SID) {
+		String newPassWord = String.valueOf(input_newPassword.getPassword());
+		String confirmPassWord = String.valueOf(input_confirmPassword.getPassword());
+		if(!newPassWord.equals(confirmPassWord)) {
+			JOptionPane.showMessageDialog(null, "Passwords dont match.", "Error", JOptionPane.ERROR_MESSAGE);
+			input_newPassword.setText("");
+			input_confirmPassword.setText("");
+			return;
+		}
+		try{
+		
+		String passWord = String.valueOf(input_newPassword.getPassword());
+		//MUSTDO: if account exists, use "update" instead of "insert"
+		Add_Element.addAccount(input_ID.getText() , input_type.getSelectedItem().toString() , input_ID.getText() , 
+				passWord , input_name.getText() , input_phone.getText(), input_email.getText());
+		}
+		catch (Illegal_Input ii){
+			JOptionPane.showMessageDialog(null, "lack of Information.", "WARNING", JOptionPane.NO_OPTION);
+			return;
+		}
+		catch(RuntimeException re){
+			JOptionPane.showMessageDialog(null, "Submit Failed.", "WARNING", JOptionPane.NO_OPTION);
+			return ;
+		}
+		
+		JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 	}
 	
 	public void setForSystemManager() {
@@ -152,6 +183,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 		setVisible(true);
 	}
 	public void setForInstructor() {
+		input_getAccount.setVisible(false);
 		input_delete.setVisible(false);
 		input_ID.setEditable(false);
 		input_name.setEditable(false);
@@ -159,6 +191,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 		setVisible(true);
 	}
 	public void setForStudent() {
+		input_getAccount.setVisible(false);
 		input_delete.setVisible(false);
 		input_ID.setEditable(false);
 		input_name.setEditable(false);
