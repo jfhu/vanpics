@@ -1,5 +1,7 @@
 package Project.Server.Operator;
 
+import java.sql.Timestamp;
+
 import javax.security.auth.login.Configuration;
 
 import org.hibernate.SessionFactory;
@@ -73,8 +75,51 @@ public final class Add_Element extends Database_Operator{
 			
 	}
 	
-	public static void addActivityGroup(String id, String courseId , String percent){
+	public static void addActivityGroup(String id, String courseId , String percent) throws Illegal_Input, No_Such_Course{
 		
+		if (id.equals("") || courseId.equals("") || percent.equals("") ){
+			throw new Illegal_Input("empty");
+		}
+
+		CourseDAO courseDAO = new CourseDAO();
+		try{
+			Course course = courseDAO.findById(courseId);
+			
+		}
+		catch (RuntimeException re){
+			throw new No_Such_Course(courseId);
+		}
+		
+		ActivityGroupDAO activityGroupDAO = new ActivityGroupDAO();
+		activityGroupDAO.save(new ActivityGroup(id , Double.valueOf(percent), courseId));
+		activityGroupDAO.getSession().beginTransaction().commit();
+		activityGroupDAO.getSession().close();
 	}
+	
+	public static void addActivity(String id, String activityGroupId , 
+			String beginTime , String endTime , String name , String description) throws Illegal_Input, No_Such_Course, No_Such_ActivityGroup{
+		
+		if (id.equals("") || activityGroupId.equals("") || beginTime.equals("") || endTime.equals("") 
+				|| name.equals("")|| description.equals("")){
+			throw new Illegal_Input("empty");
+		}
+
+		ActivityGroupDAO ActivityGroupDAO = new ActivityGroupDAO();
+		try{
+			ActivityGroupDAO.findById(activityGroupId);
+			
+		}
+		catch (RuntimeException re){
+			throw new No_Such_ActivityGroup(activityGroupId);
+		}
+		
+		ActivityDAO activityDAO = new ActivityDAO();
+		activityDAO.save(new Activity(id , name , description , Timestamp.valueOf(beginTime) , 
+				           Timestamp.valueOf(endTime) , activityGroupId));
+		activityDAO.getSession().beginTransaction().commit();
+		activityDAO.getSession().close();
+	}
+	
+	
 }
 
