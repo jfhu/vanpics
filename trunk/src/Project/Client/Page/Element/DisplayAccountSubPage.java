@@ -144,9 +144,12 @@ public class DisplayAccountSubPage extends BasePageElement{
 	
 	public void getInfoFromID(String SID) {
 		Account account = null;
-		//MUSTDO get info from ID
-		//e.g.: account = getAccount()
-		//error if account doesn't exist
+		try {
+			account = Account.find(SID);
+		} catch (Exception ex) {
+			JOptionPane.showConfirmDialog(null, "No such user.", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 
 		input_ID.setText(account.getId());
 		input_email.setText(account.getEmail());

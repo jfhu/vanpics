@@ -4,7 +4,7 @@ import Project.Server.Database.*;
 
 
 public class Student extends Account {
-	public static ArrayList <Student> find(String courseId){
+	public static ArrayList <Student> findStudent(String courseId){
 		AccountDAO accountDAO = new AccountDAO();
 		AccountIdCourseIdDAO accountIdCourseIdDAO = new AccountIdCourseIdDAO();
 		
