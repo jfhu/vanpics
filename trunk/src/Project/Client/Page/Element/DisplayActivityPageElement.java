@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -75,12 +76,23 @@ public class DisplayActivityPageElement extends BasePageElement {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == input_plus) {
-			TableModel tm = jTable.getModel();
+			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+			tableModel.addRow(new Object[]{tableModel.getRowCount(), "Activity Name", 10});
 			
 		} else if (e.getSource() == input_minus) {
+			int selectRows=jTable.getSelectedRows().length;
+			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+			if (selectRows > 1) {
+				int[] selRowIndexes = jTable.getSelectedRows();
+				for (int i = 0; i < selRowIndexes.length; i++) {
+					tableModel.removeRow(selRowIndexes[i]);
+				}
+			} else {
+				int selRowIndex = jTable.getSelectedRow();
+				tableModel.removeRow(selRowIndex);
+			}
 			
 		}
-		
 	}
 }
 
