@@ -124,7 +124,12 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 					
 					f.createNewFile();
 					FileWriter fw = new FileWriter(f);
-					//MUSTDO: write the table as a csv spreadsheet
+					
+					
+					
+					for (Student s : students) {
+						
+					}
 					fw.write("This is a CSV spreadsheet.");
 					fw.close();
 					JOptionPane.showMessageDialog(null, "Export successfully.", "Export done", JOptionPane.NO_OPTION);
