@@ -29,6 +29,13 @@ public final class Add_Element extends Database_Operator{
 		
 	}
 	
+	public static void addStudent(String studentId , String courseId){
+		AccountIdCourseIdDAO accountIdCourseIdDAO = new AccountIdCourseIdDAO();
+		accountIdCourseIdDAO.save(new AccountIdCourseId(studentId , courseId) );
+		accountIdCourseIdDAO.getSession().beginTransaction().commit();
+		accountIdCourseIdDAO.getSession().close();
+	}
+	
 	public static void addCourse(String courseId , String courseName , String instructorId 
 			, String term , String description) throws Illegal_Input, No_Such_Instructor{
 		
@@ -56,7 +63,7 @@ public final class Add_Element extends Database_Operator{
 		
 		try{
 			
-		AccountIdCourseId a = new AccountIdCourseId(instructorId+"#"+courseId , instructorId , courseId );
+		AccountIdCourseId a = new AccountIdCourseId( instructorId , courseId );
 		
 		accountIdCourseIdDAO.save(a);
 		accountIdCourseIdDAO.getSession().beginTransaction().commit();

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 import Project.Client.Mainframe;
+import Project.Server.Database.Account;
 
 public abstract class BasePage extends Mainframe
 						implements ActionListener {
@@ -14,4 +15,13 @@ public abstract class BasePage extends Mainframe
 	public BasePage() {
 	}
 	abstract public void setLayout();
+	
+	protected Account account;
+	
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 }

@@ -66,6 +66,10 @@ public class DisplayActivityPageElement extends BasePageElement {
 		add(paneActivity_button, BorderLayout.WEST);
 		add(scrollTable, BorderLayout.CENTER);
 		
+		input_plus.addActionListener(this);
+		input_minus.addActionListener(this);
+		input_loadPast.addActionListener(this);
+		
 	}
 	
 	public void clear() {
@@ -82,13 +86,14 @@ public class DisplayActivityPageElement extends BasePageElement {
 		} else if (e.getSource() == input_minus) {
 			int selectRows=jTable.getSelectedRows().length;
 			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-			if (selectRows > 1) {
-				int[] selRowIndexes = jTable.getSelectedRows();
-				for (int i = 0; i < selRowIndexes.length; i++) {
-					tableModel.removeRow(selRowIndexes[i]);
-				}
+			if (selectRows < 1) {
+				;
+			}
+			else if (selectRows > 1) {
+				;
 			} else {
 				int selRowIndex = jTable.getSelectedRow();
+				System.out.println(selRowIndex + " " + tableModel.getRowCount());
 				tableModel.removeRow(selRowIndex);
 			}
 			
