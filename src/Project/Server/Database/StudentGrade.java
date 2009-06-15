@@ -47,7 +47,7 @@ public class StudentGrade implements java.io.Serializable {
 	}
 
 	public void setId(String id) throws Permission_Denied {
-		throw new Permission_Denied("Do not set id Manually");
+		this.id = id;
 	}
 
 	public String getStudentId() {
@@ -56,7 +56,7 @@ public class StudentGrade implements java.io.Serializable {
 
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
-		this.id=this.studentId+this.activityId+this.courseId;
+		this.id=this.studentId+"#"+this.activityId+"#"+this.courseId;
 	}
 
 	public String getCourseId() {
@@ -65,7 +65,7 @@ public class StudentGrade implements java.io.Serializable {
 
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
-		this.id=this.studentId+this.activityId+this.courseId;
+		this.id=this.studentId+"#"+this.activityId+"#"+this.courseId;
 	}
 
 	public String getActivityId() {
@@ -74,7 +74,7 @@ public class StudentGrade implements java.io.Serializable {
 
 	public void setActivityId(String activityId) {
 		this.activityId = activityId;
-		this.id=this.studentId+this.activityId+this.courseId;
+		this.id=this.studentId+"#"+this.activityId+"#"+this.courseId;
 	}
 
 	public Grade getGrade() throws Illegal_Length, Out_of_Range, Only_Alphabet, Only_Integer {
