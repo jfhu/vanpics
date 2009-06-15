@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+import javax.management.RuntimeErrorException;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -20,11 +21,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import Project.Client.Controller.ActivityTableModel;
 import Project.Client.Controller.MyCSVFileChooser;
 import Project.Client.Page.BasePage;
 import Project.Server.Object.Student;
+import Project.Server.Operator.Add_Element;
 
 public class DisplayStudentListSubPage extends JDialog implements ActionListener {
 	JPanel layout = new JPanel();
@@ -83,9 +86,22 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		input_export_cvs.addActionListener(this);
 	}
 
-
+		
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == input_submit) {
+			
+			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+			
+			int i;
+			// MUSTDO: add student
+			try{
+				Add_Element.addStudent(tableModel.getValueAt(0, 0).toString() , this.courseID);
+			}
+			catch(Throwable re){
+				JOptionPane.showMessageDialog(null, "Submit Failed.", "WARNING", JOptionPane.NO_OPTION);
+			}
+			
+			
 			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 			dispose();
 		} else if (e.getSource() == input_discard) {

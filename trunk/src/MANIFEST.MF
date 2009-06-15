@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: Project.Client.Mainframe
+Class-Path:connector.jar hibernate3.jar log4j-1.2.15.jar
+

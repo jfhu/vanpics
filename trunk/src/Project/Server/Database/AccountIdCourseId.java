@@ -21,8 +21,8 @@ public class AccountIdCourseId implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AccountIdCourseId(String id, String accountId, String courseId) {
-		this.id = id;
+	public AccountIdCourseId( String accountId, String courseId) {
+		this.id = this.id = this.accountId+"#"+this.courseId;
 		this.accountId = accountId;
 		this.courseId = courseId;
 	}

@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 import Project.Client.Page.Element.AddCourseSubPage;
+import Project.Server.Database.Account;
 
 public class InstructorPage extends BasePage 
 					implements ItemListener
@@ -33,7 +34,10 @@ public class InstructorPage extends BasePage
 	private String MYCOURSE2 = new String("Milki's the worst~");
 	
 	public InstructorPage() {
+		if (account != null)
+			command.setText(account.getUserName());
 		setLayout();
+		
 	}
 	public InstructorPage(Point p) {
 		super(p);

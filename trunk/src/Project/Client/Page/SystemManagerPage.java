@@ -4,10 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import Project.Client.Page.Element.*;
+import Project.Server.Database.Account;
 
 public class SystemManagerPage extends BasePage 
 								implements ItemListener {
 
+	
 	//menu
 	private JMenuBar	menuBar = new JMenuBar();
 	private JMenu		command = new JMenu("USERNAME");
@@ -30,6 +32,9 @@ public class SystemManagerPage extends BasePage
 	}
 	public SystemManagerPage(Point p) {
 		super(p);
+		if (account != null) {
+			command = new JMenu(account.getName());
+		}
 		setLayout();
 	}
 	
