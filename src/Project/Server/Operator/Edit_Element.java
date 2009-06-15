@@ -17,8 +17,10 @@ public static void modifyAccount(String id , String type , String userName , Str
 		Account account = new Account (id , type , userName ,passWord , name ,phone, email);
 	//	System.err.println(passWord);
 		
+		try{
 		Account acc = accountDAO.findById(id);
 		accountDAO.delete(acc);
+		}catch(Throwable r){}
 		accountDAO.save(account);
 		accountDAO.getSession().beginTransaction().commit();
 		accountDAO.getSession().close();

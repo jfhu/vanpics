@@ -11,7 +11,7 @@ import Project.Server.Object.*;
 /**
 */
 public final class Calculation extends Grade_Operator{
-	static Grade calculateSum(Activity_List activityList , String id , int high , int low) throws No_Such_Student, Out_of_Range, Illegal_Length, Only_Integer, Only_Alphabet
+	static Grade calculateSum(Activity_List activityList , String id) throws No_Such_Student, Out_of_Range, Illegal_Length, Only_Integer, Only_Alphabet
 	{	
 		
 		double sum = 0;
@@ -22,7 +22,7 @@ public final class Calculation extends Grade_Operator{
 			Grade grade = activityGroup.getGrade(id);
 			sum = sum + grade.getPercentage() * activityGroup.getPercent();
 		}
-		Grade_with_Integer ret =  new Grade_with_Integer( Integer.toString(high) , Integer.toString(low) );
+		Grade_with_Integer ret =  new Grade_with_Integer("100","0" );
 		ret.set(Grade_with_Character.turn(  (int)(sum + 0.5) )  );
 		StudentGrade studentGrade = new StudentGrade(id , activityGroups.get(0).getCourseId() , "SUM" , ret , 0);
 		StudentGradeDAO studentGradeDAO = new StudentGradeDAO();

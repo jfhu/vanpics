@@ -13,7 +13,7 @@ import Project.Server.Database.StudentGradeDAO;
 /**
 */
 public final class Delete_Element extends Database_Operator{
-public static void modifyAccount(String id ) throws Illegal_Input{
+public static void removeAccount(String id ) throws Illegal_Input{
 		
 		if (id.equals("")) throw new Illegal_Input("empty");
 		
