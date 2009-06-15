@@ -2,6 +2,7 @@ package Project.Client.Page.Element;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
@@ -20,11 +21,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Project.Client.Controller.ActivityTableModel;
 import Project.Client.Controller.MyCSVFileChooser;
+import Project.Client.Controller.StudentTableModel;
 import Project.Client.Page.BasePage;
 import Project.Server.Object.Student;
 import Project.Server.Operator.Add_Element;
@@ -41,7 +44,10 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	JButton input_submit = new JButton("Submit");
 	JButton input_discard = new JButton("Discard");
 	
-	ArrayList<Student> students;
+	//MUSTDO return a ArrayList from database
+	//studentID, grade1, grade2, grade3
+	//studentID, grade1, grade2, grade3
+	ArrayList<String[]> list;
 	
 	private String courseID;
 	
@@ -51,7 +57,15 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	
 	public DisplayStudentListSubPage() {
 		
-		students = Student.find(courseID); 
+		//MUSTDO: See line 44
+		String[] a = {"stu1", "80", "90", "85"};
+		String[] b = {"stu2", "75", "85", "90"};
+		String[] c = {"stu3", "60", "65", "70"};
+		list = new ArrayList();
+		list.add(a);
+		list.add(b);
+		list.add(c);
+		
 		
 		layout.setLayout(new BorderLayout(10, 10));
 		setSize(800, 480);
@@ -60,14 +74,11 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		//set JTable
 		jTable.setOpaque(false);
 		jTable.setGridColor(new Color(200, 200, 200));
-		//MUSTDO TABLE
-		/*
-		String headerName[] = {"SID", "CourseID"};
-		String tabName = "ZdcQdw";
-		MTableModel mTableModel = new MTableModel(headerName, tabName);
-		mTableModel.setCourseID(courseID);
-		jTable.setModel(mTableModel);
-		*/
+		String[] columnNames = {"Student ID", "Activity1", "Activity2", "Activity3", "Activity4", "Activity5", "Activity6"};
+		jTable.setModel(new StudentTableModel(columnNames, list));
+		JScrollPane scrollTable = new JScrollPane();
+		scrollTable.getViewport().add(jTable, null);
+		scrollTable.setPreferredSize(new Dimension(getPreferredSize().width, getPreferredSize().height));
 		
 		submit.add(input_discard);
 		submit.add(input_submit);
@@ -77,7 +88,7 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 		header.add(header_right);
 		
 		layout.add(header, BorderLayout.NORTH);
-		layout.add(jTable, BorderLayout.CENTER);
+		layout.add(scrollTable, BorderLayout.CENTER);
 		layout.add(submit, BorderLayout.SOUTH);
 		setContentPane(layout);
 		
@@ -143,12 +154,18 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 					f.createNewFile();
 					FileWriter fw = new FileWriter(f);
 					
-					
-					
-					for (Student s : students) {
-						
+					//MUSTDO see line 60
+					for (String[] st: list) {
+						for (int i = 0; i < st.length; i++) {
+							fw.write(st[i]);
+							if (i != st.length -1) {
+								fw.write(",\t");
+							} else {
+								fw.write("\n");
+							}
+						}
 					}
-					fw.write("This is a CSV spreadsheet.");
+					
 					fw.close();
 					JOptionPane.showMessageDialog(null, "Export successfully.", "Export done", JOptionPane.NO_OPTION);
 				}

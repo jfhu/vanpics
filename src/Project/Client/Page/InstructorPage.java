@@ -30,8 +30,10 @@ public class InstructorPage extends BasePage
 	private AddCourseSubPage addCourseSubpage = new AddCourseSubPage();
 	
 //	Course
-	private String MYCOURSE1 = new String("course1");
-	private String MYCOURSE2 = new String("course2");
+	private String [] courses;
+	
+	private String MYCOURSE1 = "course1";
+	private String MYCOURSE2 = "course2";
 	
 	public InstructorPage() {
 		setLayout();
@@ -44,8 +46,6 @@ public class InstructorPage extends BasePage
 	
 	@Override
 	public void setLayout() {
-		if (account != null)
-			command.setText(account.getUserName());
 		
 		frame.setLayout(new BorderLayout());
 		String comboBoxItem [] = {MYCOURSE1, MYCOURSE2};
@@ -85,7 +85,7 @@ public class InstructorPage extends BasePage
 	}
 	public void itemStateChanged(ItemEvent e) {
 		// MUSTDO Auto-generated method stub
-		
+		// get a course of courseID and update the fields
 	}
 	@Override
 	public void updateName() {
