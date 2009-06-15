@@ -118,6 +118,13 @@ public class LoginPage extends BasePage {
 					
 					frame.setVisible(false);
 				}
+				else if (account.getType().equalsIgnoreCase( "Administrator" )){
+					newFrame = new AdministratorPage(frame.getLocation());
+					newFrame.setAccount(account);
+					newFrame.updateName();
+					
+					frame.setVisible(false);
+				}
 				else {
 					JOptionPane.showMessageDialog(null, "ERROR:Account Type Error, Please System Manager.", "Login Error", JOptionPane.ERROR_MESSAGE);
 				}

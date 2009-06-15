@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import Project.Exception.Illegal_Input;
 import Project.Exception.No_Such_Instructor;
+import Project.Server.Database.Course;
 import Project.Server.Operator.Add_Element;
 
 import java.awt.*;
@@ -38,6 +39,7 @@ public class AddCourseSubPage extends BasePageElement {
 	private JButton input_submit = new JButton("Submit");
 	
 	private DisplayStudentListSubPage studentList = new DisplayStudentListSubPage();
+	private Course course;
 	
 	public AddCourseSubPage() {
 		setLayout(new BorderLayout());
@@ -89,6 +91,19 @@ public class AddCourseSubPage extends BasePageElement {
 		input_submit.addActionListener(this);
 	}
 
+	public void update(String courseId) {
+		//MUSTDO update courseID
+		//course = get from database
+		
+		paneActivity.setCourseId(courseId);
+		
+		input_courseID.setText(course.getId());
+		input_courseName.setText(course.getName());
+		input_description.setText(course.getInformation());
+		// get missing?  input_instructorId.setText(course.getName());
+		input_term.setText(course.getTerm());
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == input_reset) {
 			input_courseID.setText("");
@@ -135,7 +150,12 @@ public class AddCourseSubPage extends BasePageElement {
 		
 	}
 	public void setForAdministrator() {
-		
+		input_courseID.setEditable(false);
+		input_courseName.setEditable(false);
+		input_instructorId.setEditable(false);
+		input_description.setEditable(false);
+		input_submit.setEnabled(false);
+		input_reset.setEnabled(false);
 	}
 }
 
