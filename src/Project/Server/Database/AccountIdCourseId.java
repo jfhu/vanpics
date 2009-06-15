@@ -34,7 +34,7 @@ public class AccountIdCourseId implements java.io.Serializable {
 	}
 
 	public void setId(String id) throws Permission_Denied {
-		throw new Permission_Denied("Do not set id Manually");
+		this.id = id;
 	}
 
 	public String getAccountId() {

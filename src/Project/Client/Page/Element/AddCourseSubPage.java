@@ -3,6 +3,7 @@ package Project.Client.Page.Element;
 import javax.swing.*;
 
 import Project.Exception.Illegal_Input;
+import Project.Exception.No_Such_Instructor;
 import Project.Server.Operator.Add_Element;
 
 import java.awt.*;
@@ -102,7 +103,17 @@ public class AddCourseSubPage extends BasePageElement {
 						,input_description.getText());
 			}
 			catch (Illegal_Input ii){
-				
+				JOptionPane.showMessageDialog(null, "Lack of Information.", "WARNING", JOptionPane.NO_OPTION);
+				return ;
+			}
+			catch (RuntimeException re){
+				JOptionPane.showMessageDialog(null, "Submit Failed.", "WARNING", JOptionPane.NO_OPTION);
+				return ;
+			}
+			catch (No_Such_Instructor nsi){
+				JOptionPane.showMessageDialog(null, "This Instructor doesn't exist.", "WARNING", JOptionPane.NO_OPTION);
+				return;
+				//TODO: You can make a link to let User can construct this account when it doesn't exist.
 			}
 			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.NO_OPTION);
 		} else if (e.getSource() == input_view_class) {
