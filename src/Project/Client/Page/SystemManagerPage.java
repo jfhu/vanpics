@@ -32,10 +32,16 @@ public class SystemManagerPage extends BasePage
 	}
 	public SystemManagerPage(Point p) {
 		super(p);
-		if (account != null) {
-			command = new JMenu(account.getName());
-		}
 		setLayout();
+	}
+	
+	@Override
+	public void updateName() {
+		if (account != null) {
+			command.setText(account.getName());
+			command.repaint();
+		}
+		frame.setVisible(true);
 	}
 	
 	@Override

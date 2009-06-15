@@ -16,6 +16,8 @@ public abstract class BasePage extends Mainframe
 	}
 	abstract public void setLayout();
 	
+	abstract public void updateName();
+	
 	protected Account account;
 	
 	public Account getAccount() {
