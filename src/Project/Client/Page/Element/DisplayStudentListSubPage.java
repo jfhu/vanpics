@@ -93,6 +93,7 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 			DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 			
 			int i;
+			System.err.println(tableModel.getValueAt(0, 0).toString());
 			// MUSTDO: add student
 			try{
 				Add_Element.addStudent(tableModel.getValueAt(0, 0).toString() , this.courseID);
