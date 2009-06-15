@@ -51,6 +51,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 	
 	private JButton input_reset = new JButton("Reset");
 	private JButton input_submit = new JButton("Submit");
+	private JButton input_delete = new JButton("Delete Account");
 	
 	public DisplayAccountSubPage() {
 		setLayout(new BorderLayout());
@@ -85,6 +86,7 @@ public class DisplayAccountSubPage extends BasePageElement{
 		panePassword.add(input_confirmPassword);
 		panePasswordWrap.add(panePassword);
 		
+		paneSubmit.add(input_delete);
 		paneSubmit.add(input_reset);
 		paneSubmit.add(input_submit);
 		
@@ -150,21 +152,27 @@ public class DisplayAccountSubPage extends BasePageElement{
 		setVisible(true);
 	}
 	public void setForInstructor() {
+		input_delete.setVisible(false);
 		input_ID.setEditable(false);
 		input_name.setEditable(false);
 		input_type.setEditable(false);
+		setVisible(true);
 	}
 	public void setForStudent() {
+		input_delete.setVisible(false);
 		input_ID.setEditable(false);
 		input_name.setEditable(false);
 		input_type.setEditable(false);
 		input_submit.setEnabled(false);
+		setVisible(true);
 	}
 	public void setForAdministrator() {
+		input_delete.setVisible(false);
 		input_ID.setEditable(false);
 		input_name.setEditable(false);
 		input_type.setEditable(false);
 		input_submit.setEnabled(false);
+		setVisible(true);
 	}
 	
 }
