@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: Project.Client.Mainframe
-Class-Path: connector.jar hibernate3.jar log4j-1.2.15.jar commons-logging-1.0.4.jar dom4j-1.6.1.jar commons.collections_3.2.0.jar
+Class-Path: connector.jar hibernate3.jar log4j-1.2.15.jar commons-logging-1.0.4.jar dom4j-1.6.1.jar
 

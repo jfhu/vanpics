@@ -96,7 +96,8 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 			System.err.println(tableModel.getValueAt(0, 0).toString());
 			// MUSTDO: add student
 			try{
-				Add_Element.addStudent(tableModel.getValueAt(0, 0).toString() , this.courseID);
+			
+				Add_Element.addStudent((String) tableModel.getValueAt(0, 0) , this.courseID);
 			}
 			catch(Throwable re){
 				JOptionPane.showMessageDialog(null, "Submit Failed.", "WARNING", JOptionPane.NO_OPTION);
