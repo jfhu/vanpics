@@ -90,5 +90,44 @@ public abstract class Grade_Operator{
 		studentGradeDAO.getSession().beginTransaction().commit();
 		studentGradeDAO.getSession().close();
 	}
+	
+	public static StudentGrade find(String studentId, String activityId , String courseId) throws No_Such_Student, No_Such_Activity, No_Such_Course{
+		AccountDAO accountDAO = new AccountDAO();
+		ActivityDAO activityDAO = new ActivityDAO();
+		StudentGradeDAO studentGradeDAO = new StudentGradeDAO();
+		CourseDAO courseDAO = new CourseDAO();
+		
+		try{
+			if (accountDAO.findById(studentId).getType() != "Student"){
+				throw new No_Such_Student(studentId);
+			}
+			
+		}
+		catch(RuntimeException re){
+			throw new No_Such_Student(studentId);
+		}
+		
+		try{
+			activityDAO.findById(activityId);
+		}
+		catch(RuntimeException re){
+			throw new No_Such_Activity(activityId);
+		}
+		
+		try{
+			courseDAO.findById(courseId);
+		}
+		catch(RuntimeException re){
+			throw new No_Such_Course(courseId);
+		}
+		
+		try{
+			return studentGradeDAO.findById(studentId+"#"+activityId+"#"+courseId);
+		}
+		catch (RuntimeException re){
+			throw re;
+		}
+	
+	} 
 }
 
