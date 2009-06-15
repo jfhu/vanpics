@@ -38,6 +38,8 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	JButton input_submit = new JButton("Submit");
 	JButton input_discard = new JButton("Discard");
 	
+	ArrayList<Student> students;
+	
 	private String courseID;
 	
 	public void setCourseID(String st) {
@@ -46,7 +48,7 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 	
 	public DisplayStudentListSubPage() {
 		
-		ArrayList <Student> students = Student.find(courseID); 
+		students = Student.find(courseID); 
 		
 		layout.setLayout(new BorderLayout(10, 10));
 		setSize(800, 480);
