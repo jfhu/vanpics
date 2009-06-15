@@ -5,7 +5,7 @@ import Project.Exception.Password_Error;
 
 /**
 */
-public final class Login extends Controller {
+public final class LoginController extends Controller {
 	public Account checkAccount(String username, String passWord) throws Password_Error , RuntimeException{
 		
 	
