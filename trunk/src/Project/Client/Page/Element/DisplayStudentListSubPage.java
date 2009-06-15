@@ -159,7 +159,7 @@ public class DisplayStudentListSubPage extends JDialog implements ActionListener
 						for (int i = 0; i < st.length; i++) {
 							fw.write(st[i]);
 							if (i != st.length -1) {
-								fw.write(",\t");
+								fw.write(",");
 							} else {
 								fw.write("\n");
 							}

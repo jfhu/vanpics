@@ -93,7 +93,7 @@ public class DisplayActivityPageElement extends BasePageElement {
 				;
 			} else {
 				int selRowIndex = jTable.getSelectedRow();
-				System.out.println(selRowIndex + " " + tableModel.getRowCount());
+				System.out.println(selRowIndex + " " + jTable.getRowCount());
 				tableModel.removeRow(selRowIndex);
 			}
 			
