@@ -8,35 +8,34 @@ import Project.Server.Operator.*;
 public final class Student_List extends List{
 /**
 */
-private ArrayList<Student> students;
 /**
  * @param Return 
  * @return 
 */
-public ArrayList<Student> getStudents() {
-	return this.students;
+
+/**
+ * @param Return 
+ * @return 
+*/
+
+public static ArrayList <Student> find(String courseId){
+	AccountIdCourseIdDAO accountIdCourseIdDAO =  new AccountIdCourseIdDAO();
+	ArrayList ids = (ArrayList) accountIdCourseIdDAO.findByCourseId(courseId);
+	ArrayList <Student> ret = new ArrayList();
+	for (Object id : ids){
+		Account account = (Account) id;
+		if (account.getType() == "Student"){
+			ret.add((Student) account);
+		}
+	}
+	return ret;
 }
-/**
- * @param Return 
- * @return 
-*/
+
+
 public int sendEmail(String email , String passWord) {
     return 0;
 }
-/**
- * @param Return 
- * @return 
-*/
 
-public boolean addElement(Student student){
-	return this.students.add(student);
-	
-}
-
-public boolean deleteElement(Student student){
-	return this.students.add(student);
-	
-}
 
 
 }
