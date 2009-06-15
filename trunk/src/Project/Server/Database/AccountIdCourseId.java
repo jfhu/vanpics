@@ -43,7 +43,7 @@ public class AccountIdCourseId implements java.io.Serializable {
 
 	public void setAccountId(String accountId) {
 		this.accountId = accountId;
-		this.id = this.accountId+this.courseId;
+		this.id = this.accountId+"#"+this.courseId;
 	}
 
 	public String getCourseId() {
@@ -52,7 +52,7 @@ public class AccountIdCourseId implements java.io.Serializable {
 
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
-		this.id = this.accountId+this.courseId;
+		this.id = this.accountId+"#"+this.courseId;
 	}
 
 }
