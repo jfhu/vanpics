@@ -1,21 +1,27 @@
 package Project.Client.Page;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 
-import javax.swing.*;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import Project.Client.Page.Element.AddCourseSubPage;
-import Project.Server.Database.Account;
 
-public class InstructorPage extends BasePage 
-					implements ItemListener
-{
-
-	private static final LayoutManager BoderLayout = null;
+public class AdministratorPage extends BasePage 
+								implements ItemListener {
+private static final LayoutManager BoderLayout = null;
 	
 //	menu
 	private JMenuBar	menuBar = new JMenuBar();
@@ -35,11 +41,11 @@ public class InstructorPage extends BasePage
 	private String MYCOURSE1 = "course1";
 	private String MYCOURSE2 = "course2";
 	
-	public InstructorPage() {
+	public AdministratorPage() {
 		setLayout();
 		
 	}
-	public InstructorPage(Point p) {
+	public AdministratorPage(Point p) {
 		super(p);
 		setLayout();
 	}
@@ -54,7 +60,7 @@ public class InstructorPage extends BasePage
 		comboBoxPane.add(new JLabel("Course List"));
 		comboBoxPane.add(comboBox);
 		
-		addCourseSubpage.setForInstructor();
+		addCourseSubpage.setForAdministrator();
 		
 		frame.add(comboBoxPane, BorderLayout.NORTH);
 		frame.add(addCourseSubpage, BorderLayout.CENTER);
@@ -86,7 +92,7 @@ public class InstructorPage extends BasePage
 	public void itemStateChanged(ItemEvent e) {
 		// MUSTDO Auto-generated method stub
 		// get a course of courseID and update the fields
-		// call addCourseSubpage.update(String CourseID);
+		// the same as Instructor
 	}
 	@Override
 	public void updateName() {
