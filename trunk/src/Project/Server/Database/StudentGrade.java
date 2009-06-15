@@ -32,7 +32,7 @@ public class StudentGrade implements java.io.Serializable {
 	/** full constructor */
 	public StudentGrade( String studentId, String courseId,
 			String activityId, Grade grade, Integer gradeId) {
-		this.id = studentId + activityId+courseId;
+		this.id = studentId +"#" +activityId+"#" +courseId;
 		this.studentId = studentId;
 		this.courseId = courseId;
 		this.activityId = activityId;
@@ -46,7 +46,7 @@ public class StudentGrade implements java.io.Serializable {
 		return this.id;
 	}
 
-	public void setId(String id) throws Permission_Denied {
+	public void setId(String id) {
 		this.id = id;
 	}
 
