@@ -27,6 +27,14 @@ public double getPercentage(){
 	return (double)(score-'A')/(highestScore - lowestScore);
 }
 
+public static String turn (int n){
+	if (n >= 90) return "A";
+	if (n >= 80) return "B";
+	if (n >= 70) return "C";
+	if (n >= 60) return "D";
+	return "E";
+	
+}
 public int set(String value) throws Illegal_Length , Out_of_Range ,Only_Alphabet {
 	check(value);
 	value = value.toUpperCase();

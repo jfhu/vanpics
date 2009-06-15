@@ -23,7 +23,7 @@ public final class Calculation extends Grade_Operator{
 			sum = sum + grade.getPercentage() * activityGroup.getPercent();
 		}
 		Grade_with_Integer ret =  new Grade_with_Integer( Integer.toString(high) , Integer.toString(low) );
-		ret.set(Integer.toString(  (int)(sum + 0.5) )  );
+		ret.set(Grade_with_Character.turn(  (int)(sum + 0.5) )  );
 		StudentGrade studentGrade = new StudentGrade(id , activityGroups.get(0).getCourseId() , "SUM" , ret , 0);
 		StudentGradeDAO studentGradeDAO = new StudentGradeDAO();
 		studentGradeDAO.save(studentGrade);
