@@ -34,6 +34,12 @@ public class Account implements java.io.Serializable {
 		this.phone = phone;
 		this.email = email;
 	}
+	
+	public static Account find(String id){
+		AccountDAO ac = new AccountDAO();
+		return ac.findById(id);
+
+	}
 
 	// Property accessors
 
