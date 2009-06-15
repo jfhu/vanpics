@@ -35,6 +35,7 @@ public class AddCourseSubPage extends BasePageElement {
 	private JScrollPane scrollPane = new JScrollPane(); 
 	
 	private JButton input_view_class = new JButton("View Class List");
+	private JButton input_addStudent = new JButton("Add Student to Course");
 	private JButton input_reset = new JButton("Reset");
 	private JButton input_submit = new JButton("Submit");
 	
@@ -61,6 +62,7 @@ public class AddCourseSubPage extends BasePageElement {
 		paneBasic.add(input_term);
 		
 		paneSubmit_left.add(input_view_class);
+		paneSubmit_Left.add(input_addStudent);
 		paneSubmit_right.add(input_reset);
 		paneSubmit_right.add(input_submit);
 		paneSubmit.add(paneSubmit_left);
@@ -89,6 +91,7 @@ public class AddCourseSubPage extends BasePageElement {
 		input_view_class.addActionListener(this);
 		input_reset.addActionListener(this);
 		input_submit.addActionListener(this);
+		input_addStudent.addActionListener(this);
 	}
 
 	public void update(String courseId) {
@@ -128,12 +131,19 @@ public class AddCourseSubPage extends BasePageElement {
 			catch (No_Such_Instructor nsi){
 				JOptionPane.showMessageDialog(null, "This Instructor doesn't exist.", "WARNING", JOptionPane.ERROR_MESSAGE);
 				return;
-				//TODO: You can make a link to let User can construct this account when it doesn't exist.
+				
 			}
 			JOptionPane.showMessageDialog(null, "Submit succeed.", "Succeed", JOptionPane.ERROR_MESSAGE);
 		} else if (e.getSource() == input_view_class) {
 			studentList.setCourseID(input_courseID.getText());
 			studentList.setVisible(true);
+		} else if (e.getSource() == input_addStudent) {
+			String studentId = JOptionPane.showInputDialog(null, "Enter a student ID:", "Add a student", JOptionPane.OK_OPTION);
+			try {
+				Add_Element.addStudent(studentId, input_courseID.getText());
+			} catch (Exception ex) {
+				JOptionPane.showConfirmDialog(null, "Action failed.", "Error", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 	
