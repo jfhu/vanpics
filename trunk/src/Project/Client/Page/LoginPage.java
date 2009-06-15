@@ -107,11 +107,15 @@ public class LoginPage extends BasePage {
 				if (account.getType().equalsIgnoreCase( "Instructor") ){
 					newFrame = new InstructorPage(frame.getLocation());
 					newFrame.setAccount(account);
+					newFrame.updateName();
+					
 					frame.setVisible(false);
 				}
 				else if (account.getType().equalsIgnoreCase( "SystemManager" )){
-					super.newFrame = new SystemManagerPage(super.frame.getLocation());
-					super.newFrame.setAccount(account);
+					newFrame = new SystemManagerPage(frame.getLocation());
+					newFrame.setAccount(account);
+					newFrame.updateName();
+					
 					frame.setVisible(false);
 				}
 				else {
@@ -149,5 +153,10 @@ public class LoginPage extends BasePage {
 			super.newFrame = new SystemManagerPage(super.frame.getLocation());
 			frame.setVisible(false);
 		}
+	}
+	@Override
+	public void updateName() {
+		// TODO Auto-generated method stub
+		
 	}
 }

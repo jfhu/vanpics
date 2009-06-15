@@ -30,12 +30,10 @@ public class InstructorPage extends BasePage
 	private AddCourseSubPage addCourseSubpage = new AddCourseSubPage();
 	
 //	Course
-	private String MYCOURSE1 = new String("YOYO's the best!");
-	private String MYCOURSE2 = new String("Milki's the worst~");
+	private String MYCOURSE1 = new String("course1");
+	private String MYCOURSE2 = new String("course2");
 	
 	public InstructorPage() {
-		if (account != null)
-			command.setText(account.getUserName());
 		setLayout();
 		
 	}
@@ -46,6 +44,9 @@ public class InstructorPage extends BasePage
 	
 	@Override
 	public void setLayout() {
+		if (account != null)
+			command.setText(account.getUserName());
+		
 		frame.setLayout(new BorderLayout());
 		String comboBoxItem [] = {MYCOURSE1, MYCOURSE2};
 		comboBox = new JComboBox(comboBoxItem);
@@ -85,5 +86,13 @@ public class InstructorPage extends BasePage
 	public void itemStateChanged(ItemEvent e) {
 		// MUSTDO Auto-generated method stub
 		
+	}
+	@Override
+	public void updateName() {
+		if (account != null) {
+			command.setText(account.getName());
+			command.repaint();
+		}
+		frame.setVisible(true);
 	}
 }
