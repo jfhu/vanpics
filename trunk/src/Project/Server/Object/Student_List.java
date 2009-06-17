@@ -1,8 +1,6 @@
 package Project.Server.Object;
 import java.util.*;
 import Project.Server.Database.*;
-import Project.Exception.*;
-import Project.Server.Operator.*;
 /**
 */
 public final class Student_List extends List{

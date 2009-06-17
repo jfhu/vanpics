@@ -1,7 +1,5 @@
 package Project.Client.Controller;
 
-import javax.swing.*;
-import java.awt.event.*;
 import javax.swing.table.*;
 
 import Project.Server.Database.ActivityGroup;

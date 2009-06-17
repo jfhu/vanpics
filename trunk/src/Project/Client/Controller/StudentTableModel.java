@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
-import Project.Server.Database.ActivityGroup;
-
 public class StudentTableModel extends DefaultTableModel {
 	private List<String[]> list=null;
 	

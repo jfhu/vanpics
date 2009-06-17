@@ -2,11 +2,6 @@ package Project.Server.Operator;
 
 import java.sql.Timestamp;
 
-import javax.security.auth.login.Configuration;
-
-import org.hibernate.SessionFactory;
-import org.hibernate.classic.Session;
-
 import Project.Exception.*;
 import Project.Server.Database.*;
 

@@ -9,7 +9,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 import Project.Client.Page.Element.AddCourseSubPage;
-import Project.Server.Database.Account;
 
 public class InstructorPage extends BasePage 
 					implements ItemListener

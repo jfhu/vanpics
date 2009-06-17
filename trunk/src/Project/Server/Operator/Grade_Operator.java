@@ -10,8 +10,6 @@ import Project.Exception.Only_Integer;
 import Project.Exception.Out_of_Range;
 import Project.Server.Database.*;
 import Project.Server.Object.*;
-import java.lang.*;
-import java.util.*;
 /**
 */
 public abstract class Grade_Operator{

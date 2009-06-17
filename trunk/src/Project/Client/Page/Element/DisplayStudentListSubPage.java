@@ -5,15 +5,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-import javax.management.RuntimeErrorException;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -25,11 +22,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Project.Client.Controller.ActivityTableModel;
 import Project.Client.Controller.MyCSVFileChooser;
 import Project.Client.Controller.StudentTableModel;
-import Project.Client.Page.BasePage;
-import Project.Server.Object.Student;
 import Project.Server.Operator.Add_Element;
 
 public class DisplayStudentListSubPage extends JDialog implements ActionListener {

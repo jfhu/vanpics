@@ -9,16 +9,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
-
-import java.util.List;
-
 import Project.Client.Controller.ActivityTableModel;
 import Project.Server.Database.ActivityGroup;
-import Project.Server.Database.AccountIdCourseId;
 
 /**
 */

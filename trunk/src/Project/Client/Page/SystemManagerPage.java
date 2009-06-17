@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import Project.Client.Page.Element.*;
-import Project.Server.Database.Account;
 
 public class SystemManagerPage extends BasePage 
 								implements ItemListener {
