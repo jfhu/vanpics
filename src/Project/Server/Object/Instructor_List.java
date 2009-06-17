@@ -1,9 +1,6 @@
 package Project.Server.Object;
 import java.util.ArrayList;
 
-import Project.Server.Database.*;
-import Project.Exception.*;
-
 public class Instructor_List extends List {
 
 	private ArrayList <Instructor>instructors;

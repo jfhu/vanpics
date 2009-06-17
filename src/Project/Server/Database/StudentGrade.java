@@ -4,7 +4,6 @@ import Project.Exception.Illegal_Length;
 import Project.Exception.Only_Alphabet;
 import Project.Exception.Only_Integer;
 import Project.Exception.Out_of_Range;
-import Project.Exception.Permission_Denied;
 import Project.Server.Object.Grade;
 import Project.Server.Object.Grade_with_Character;
 

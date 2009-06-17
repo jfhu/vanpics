@@ -1,24 +1,13 @@
 package Project.Server.Operator;
 
-import java.sql.Timestamp;
-
 import javax.management.RuntimeErrorException;
 
 import Project.Exception.Illegal_Input;
 import Project.Exception.No_Such_Account;
 import Project.Exception.No_Such_ActivityGroup;
 import Project.Exception.No_Such_Course;
-import Project.Exception.No_Such_Instructor;
 import Project.Server.Database.Account;
 import Project.Server.Database.AccountDAO;
-import Project.Server.Database.AccountIdCourseId;
-import Project.Server.Database.AccountIdCourseIdDAO;
-import Project.Server.Database.Activity;
-import Project.Server.Database.ActivityDAO;
-import Project.Server.Database.ActivityGroup;
-import Project.Server.Database.ActivityGroupDAO;
-import Project.Server.Database.Course;
-import Project.Server.Database.CourseDAO;
 
 /**
 */

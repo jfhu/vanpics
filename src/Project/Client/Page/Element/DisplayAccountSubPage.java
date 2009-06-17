@@ -5,11 +5,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-
 import Project.Exception.Illegal_Input;
 import Project.Server.Database.Account;
-import Project.Server.Operator.Add_Element;
 import Project.Server.Operator.Delete_Element;
 import Project.Server.Operator.Edit_Element;
 

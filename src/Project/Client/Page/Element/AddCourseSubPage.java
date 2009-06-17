@@ -62,7 +62,7 @@ public class AddCourseSubPage extends BasePageElement {
 		paneBasic.add(input_term);
 		
 		paneSubmit_left.add(input_view_class);
-		paneSubmit_Left.add(input_addStudent);
+		paneSubmit_left.add(input_addStudent);
 		paneSubmit_right.add(input_reset);
 		paneSubmit_right.add(input_submit);
 		paneSubmit.add(paneSubmit_left);

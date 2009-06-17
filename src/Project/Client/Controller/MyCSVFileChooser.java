@@ -1,8 +1,6 @@
 package Project.Client.Controller;
 
 import java.io.File;
-import java.io.FileFilter;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 

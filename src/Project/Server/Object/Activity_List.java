@@ -1,7 +1,6 @@
 package Project.Server.Object;
 import java.util.*;
 import Project.Server.Database.*;
-import Project.Exception.*;
 /**
 */
 public final class Activity_List extends List{
